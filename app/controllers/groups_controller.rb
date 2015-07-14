@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
-    http_basic_authenticate_with name: "gdd", password: "gdd2015",
-    except: [:index, :show]
+    #http_basic_authenticate_with name: "gdd", password: "gdd2015",
+    #except: [:index, :show]
 
+    before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
 
     def home
         $group_log.debug "hello every one, this is home page!"
