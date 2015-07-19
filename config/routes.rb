@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'groups/home'
 
   resources:groups do
+    member do
+        post :join
+        post :quit
+    end
     resources:posts
   end
   root 'groups#index'
