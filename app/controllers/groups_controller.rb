@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
 #        @group = Group.new(group_params)
         @group = current_user.groups.new(group_params) 
         if @group.save
-            current_user.quit! (@group)
+            current_user.join!(@group)
             redirect_to groups_path, :notice => '新增討論版成功'
         else
             render :new

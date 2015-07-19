@@ -5,7 +5,7 @@ class Group < ActiveRecord::Base
     def editable_by?(user)
         user&&user == owner
     end
-    has_many :posts
+    has_many :posts, :dependent => :destroy
     has_many :group_users
     has_many :members, :through => :group_users, :source => :user
 end
