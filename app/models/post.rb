@@ -5,4 +5,6 @@ class Post < ActiveRecord::Base
     def editable_by?(user)
         user && user == author
     end
+
+    scope :recent, -> { order("updated_at DESC") }
 end
